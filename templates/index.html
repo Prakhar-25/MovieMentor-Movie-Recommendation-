@@ -1,0 +1,76 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <div class="container my-3 align-middle" style="background-color: white; filter: opacity(92%); margin-top: 50px; margin-bottom: 50px ; border-radius: 35px;">
+        <p class="h2 py-1" style="color: rgb(48, 14, 116); text-align: center;" >Get Movie Recommendations</p>
+        <div class="container my-3 p-3 mb-0">
+            <form action="/recommend" method="POST">
+                <div class="mb-3" >
+                <label for="moviename" class="form-label" style="font-weight: bold;">Enter Movie Name</label>
+                <input type="text" class="form-control" name = "moviename" id="moviename" aria-describedby="moviename">
+                <div class="mb-3" style="margin-top: 20px; margin-bottom: 50px ; filter: opacity(100%);">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    <div class="container  p-2 align-middle" style="background-color: white; filter: opacity(92%);border-radius: 35px;">
+        <p class="h3 py-1" style="color: rgb(48, 14, 116);">Your Recommendations</p>
+        <div class="container table-responsive align-middle">
+            <!-- <table class="table table-hover" style="width: 600px;">
+                <thead>
+                <tr>
+                    <th scope="col">S.no</th>
+                    <th scope="col">Movie Name</th>
+                    <th scope="col">Similarity (KNN Distance)</th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry the Bird</td>
+                    <td>Otto</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Larry the Bird</td>
+                    <td>Otto</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>Larry the Bird</td>
+                    <td>Otto</td>
+                </tr>
+                </tbody>
+            </table> -->
+            {% for table in tables %}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        {%for title in titles%}
+                        <th scope = "col">{{title}}</th>
+                        {%endfor%}
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    {{ table|safe }}
+                </tbody>
+            </table>
+            {%endfor%}
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+{% endblock body %}
