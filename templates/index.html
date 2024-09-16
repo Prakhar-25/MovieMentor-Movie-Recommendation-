@@ -14,6 +14,17 @@
             </form>
         </div>
     </div>
+    <script>
+        {% with messages = get_flashed_messages(with_categories = true )%}
+            {% if messages %}
+                {% for category, message in messages %}
+                    alert("{{message}}") ;
+                {%endfor%}
+            {%endif%}
+        {%endwith%}
+    </script>
+    {% with result = result%}
+    {%if result == true%}
     <div class="container  p-2 align-middle" style="background-color: white; filter: opacity(92%);border-radius: 35px;">
         <p class="h3 py-1" style="color: rgb(48, 14, 116);">Your Recommendations</p>
         <div class="container table-responsive align-middle">
@@ -53,7 +64,6 @@
                 </tr>
                 </tbody>
             </table> -->
-            {% for table in tables %}
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -63,12 +73,19 @@
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    {{ table|safe }}
+                    {% for row in tables%}
+                    <tr>
+                        {%for item in row%}
+                        <td> {{item}} </td>
+                        {%endfor%}
+                    </tr>
+                    {%endfor%}
                 </tbody>
             </table>
-            {%endfor%}
         </div>
     </div>
+    {%endif%}
+    {%endwith%}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
