@@ -2,7 +2,7 @@
 This project is a movie recommendation system that employs machine learning techniques, specifically K-Nearest Neighbors (KNN) algorithm and cosine similarity, to provide personalized movie recommendations to users.
 
 ## Overview
-The movie recommendation system is built using a dataset of movies and user ratings. It leverages the KNN algorithm to find similar movies based on simialrity in ratings and recommends those movies to the user. The similarity between movies is calculated using cosine similarity, a measure of the similarity between two non-zero vectors.
+The movie recommendation system is built using a dataset of movies and user ratings. It leverages the KNN algorithm to find similar movies based on similarity in ratings and recommends those movies to the user. The similarity between movies is calculated using cosine similarity, a measure of the similarity between two non-zero vectors.
 ## Technologies Used
 
 - Python: Programming language used for implementing the recommendation system.
